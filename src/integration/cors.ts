@@ -17,6 +17,7 @@ export interface CorsIntegrationProps extends ValidatorConfig {
   readonly headers: string;
   readonly origins: string;
   readonly methods: string;
+  readonly credentials: string;
 }
 
 /**
@@ -49,7 +50,7 @@ export class CorsIntegration extends Integration {
    */
   constructor(_: Construct, props: CorsIntegrationProps) {
 
-    const { headers, origins, methods } = props;
+    const { headers, origins, methods,credentials } = props;
 
     const integration: IntegrationProps = {
       type: IntegrationType.MOCK,
@@ -61,6 +62,7 @@ export class CorsIntegration extends Integration {
             responseParameters: {
               'method.response.header.Access-Control-Allow-Methods': `'${methods}'`,
               'method.response.header.Access-Control-Allow-Headers': `'${headers}'`,
+              'method.response.header.Access-Control-Allow-Credentials': `'${credentials}'`,
             },
             responseTemplates: {
               'application/json': CorsIntegration.buildTemplate(origins),

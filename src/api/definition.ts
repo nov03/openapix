@@ -196,6 +196,9 @@ export class ApiDefinition extends apigateway.ApiDefinition {
             'Access-Control-Allow-Origin': {
               type: 'string',
             },
+            'Access-Control-Allow-Credentials': {
+              type: 'string',
+            },
           },
         },
       },

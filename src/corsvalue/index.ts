@@ -28,3 +28,6 @@ export class CorsMethods extends CorsSettingValue {
 export class CorsHeaders extends CorsSettingValue {
   protected static errorMessage: string = 'CorsHeaders.fromList() call values must contain at least 1 header';
 }
+export class CorsCredentials extends CorsSettingValue {
+  protected static errorMessage: string = 'CorsCredentials.fromList() call values must contain at least 1 header';
+}
